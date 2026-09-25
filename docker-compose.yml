@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: pdf_rag_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+      - ENVIRONMENT=production
+      - LOG_LEVEL=INFO
+      - LLM_PROVIDER=mock
+      - EMBEDDING_MODEL=all-MiniLM-L6-v2
+      - CHUNK_SIZE=500
+      - CHUNK_OVERLAP=100
+      - TOP_K=4
+      - ENABLE_INJECTION_DEFENSE=true
+      - SQLITE_DB_PATH=/app/data/rag.db
+      - CHROMA_PERSIST_DIR=/app/data/chroma
+      - UPLOAD_DIR=/app/data/uploads
+    volumes:
+      - rag_data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: pdf_rag_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  rag_data:
