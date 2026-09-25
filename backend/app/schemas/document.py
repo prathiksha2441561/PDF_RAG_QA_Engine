@@ -9,6 +9,7 @@ class DocumentUploadResponse(BaseModel):
     chunks_created: int = Field(..., ge=0, description="Total number of text chunks generated and indexed")
     file_size_bytes: int = Field(..., ge=0, description="Size of the uploaded file in bytes")
     created_at: str = Field(..., description="ISO 8601 upload timestamp")
+    warning: Optional[str] = Field(default=None, description="Warning if document appears to be a scanned image")
 
 
 class DocumentInfo(BaseModel):

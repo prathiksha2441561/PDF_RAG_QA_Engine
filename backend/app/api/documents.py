@@ -92,10 +92,15 @@ async def upload_document(file: UploadFile = File(...)):
         file_size_bytes=len(content)
     )
 
-    logger.info(
-        f"Document '{file.filename}' successfully uploaded and indexed. "
-        f"ID: {doc_id}, Pages: {len(extracted_pages)}, Chunks: {len(chunks)}"
-    )
+    # Check if document appears to be a scanned image with minimal text
+    total_text_chars = sum(p["char_count"] for p in extracted_pages)
+    scan_warning = None
+    if total_text_chars < 150:
+        scan_warning = (
+            "Notice: This PDF appears to be a scanned photo or image without an embedded digital text layer. "
+            "Only URL metadata was extracted. An OCR engine (e.g. Tesseract) is required to parse text from scanned images."
+        )
+        logger.warning(f"Uploaded file '{file.filename}' has minimal extractable text ({total_text_chars} chars).")
 
     return DocumentUploadResponse(
         document_id=doc_id,
@@ -103,7 +108,8 @@ async def upload_document(file: UploadFile = File(...)):
         pages_processed=len(extracted_pages),
         chunks_created=len(chunks),
         file_size_bytes=len(content),
-        created_at=doc_record["uploaded_at"]
+        created_at=doc_record["uploaded_at"],
+        warning=scan_warning
     )
 
 
