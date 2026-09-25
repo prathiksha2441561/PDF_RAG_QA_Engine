@@ -4,13 +4,13 @@
   "incorrect_answers": 0,
   "accuracy_percent": 100.0,
   "retrieval_hit_rate_percent": 100.0,
-  "average_latency_ms": 33.61,
+  "average_latency_ms": 53.62,
   "results": [
     {
       "id": "Q1",
       "question": "What is the primary authentication protocol and token expiration time used by the platform?",
       "expected_answer": "The platform uses OAuth 2.0 with PKCE and JWT tokens with a 15-minute expiration time.",
-      "generated_answer": "Identity and Access Management\nThe primary authentication protocol used across all external and internal API gateways is OAuth 2.0 wit\nAuthentication tokens are issued as JSON Web Tokens (JWT) with a mandatory 15-minute expiration t\nFor communication across public and private networks, TLS 1.3 is mandated for in-transit communicatio\nAll persistent storage volumes enforce AES-256 encryption at rest.",
+      "generated_answer": "Identity and Access Management The primary authentication protocol used across all external and internal API gateways is OAuth 2.0 wit Authentication tokens are issued as JSON Web Tokens (JWT) with a mandatory 15-minute expiration t For communication across public and private networks, TLS 1.3 is mandated for in-transit communicatio All persistent storage volumes enforce AES-256 encryption at rest. Architecture Overview: The platform uses OAuth 2.0 with PKCE and JWT tokens with 15-minute expiry. PostgreS Architecture Overview: The platform uses OAuth 2.0 with PKCE and JWT tokens with 15-minute expiry.",
       "retrieved_sources": [
         {
           "document": "cloud_architecture_specification.pdf",
@@ -37,25 +37,25 @@
           "snippet": "Architecture Overview: The platform uses OAuth 2.0 with PKCE and JWT tokens with 15-minute expiry. PostgreS"
         },
         {
-          "document": "cloud_architecture_specification.pdf",
-          "document_id": "818db7a6-7fa4-41df-9803-cc3b067f7d50",
-          "page": 3,
-          "chunk_id": "818db7a6-7fa4-41df-9803-cc3b067f7d50_p3_c1",
-          "relevance_score": 0.3057,
-          "snippet": "Cloud Architecture Specification\nSection 3: Storage and Vector Retrieval Infrastructure\n3. Data Persistence and Database Architecture\nRelati..."
+          "document": "U Prathiksha Kini Resume.pdf",
+          "document_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d",
+          "page": 1,
+          "chunk_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d_p1_c7",
+          "relevance_score": 0.4842,
+          "snippet": "\u2013 Implemented JWT authentication, refresh-token management, security hardening, cron-based data scheduling, and Dockerized deployment \nto im..."
         }
       ],
       "retrieval_success": true,
       "answer_correct": true,
       "groundedness": "GROUNDED",
-      "latency_ms": 49.16,
+      "latency_ms": 108.66,
       "notes": null
     },
     {
       "id": "Q2",
       "question": "What was the compute infrastructure budget in Q3, and what is the data egress fee?",
       "expected_answer": "The compute infrastructure budget was $120,000 in Q3, and the data egress fee is $0.08 per gigabyte.",
-      "generated_answer": "The compute infrastructure budget was $120,000 in Q3, compared to $95,000 in Q2, reflecting higher m\nNetwork data egress fee is $0.08 per gigabyte across cross-zone endpoints.",
+      "generated_answer": "The compute infrastructure budget was $120,000 in Q3, compared to $95,000 in Q2, reflecting higher m Network data egress fee is $0.08 per gigabyte across cross-zone endpoints. Operating Infrastructure Expenses Operational expenditure is reviewed quarterly by engineering leadership.",
       "retrieved_sources": [
         {
           "document": "cloud_architecture_specification.pdf",
@@ -93,14 +93,14 @@
       "retrieval_success": true,
       "answer_correct": true,
       "groundedness": "GROUNDED",
-      "latency_ms": 36.42,
+      "latency_ms": 91.81,
       "notes": null
     },
     {
       "id": "Q3",
       "question": "Describe the vector search infrastructure including index type and embedding dimensions.",
       "expected_answer": "The vector search infrastructure uses ChromaDB with an HNSW index and cosine distance metric. It stores dense vector embeddings with an embedding dimension of 384.",
-      "generated_answer": "Vector Retrieval System\nThe vector search infrastructure uses ChromaDB with an HNSW index and cosine distance metric. It stores dense vector embeddings with an embedding dimension of 384 generated from domain-tuned \nTop-k similarity queries execute within the retrieval microservice with an internal latency threshold of un Cloud Architecture Specification\nSection 3: Storage and Vector Retrieval Infrastructure\n3.",
+      "generated_answer": "Vector Retrieval System The vector search infrastructure uses ChromaDB with an HNSW index and cosine distance metric. It stores dense vector embeddings with an embedding dimension of 384 generated from domain-tuned  Top-k similarity queries execute within the retrieval microservice with an internal latency threshold of un Cloud Architecture Specification Section 3: Storage and Vector Retrieval Infrastructure 3. SKILLS Technical: C, C++, Python, VB.NET, HTML, CSS, JavaScript, SQL, MongoDB, Power BI, Excel, UiPath Domain: Software Development, Web Development, Full-Stack Development, Database Management, Data Analytics, Robotic Process Automation (RPA) Soft Skills: Problem Solving, Analytical Thinking, Teamwork, Communication, Adaptability, Time Management Languages: English \u2014 Proficient | Hindi \u2014 Fluent | Kannada \u2014 Fluent | Konkani \u2014 Native CERTIFICATIONS & TRAINING \u2022 Oracle Cloud Infrastructure 2025 AI Foundations Associate \u2014 Oracle University May 2026 \u2022 Oracle Data Platform 2025 Foundations Associate \u2014 Oracle University May 2026 \u2022 AWS Technical Essentials \u2014 AWS Training & Certification Apr 2026 \u2022 Python Programming: A Practical Approach \u2014 Udemy Apr 2026 CO-CURRICULAR & LEADERSHIP Labyrinth \u2013 CS Club, CHRIST University, Bengaluru Jul 2025 \u2013 Present InterVerse \u2013 Collaboration Vertical Head \u2013 Led interdisciplinary initiatives and coordinated collaboration across multiple club verticals to",
       "retrieved_sources": [
         {
           "document": "cloud_architecture_specification.pdf",
@@ -119,33 +119,33 @@
           "snippet": "Cloud Architecture Specification\nSection 3: Storage and Vector Retrieval Infrastructure\n3. Data Persistence and Database Architecture\nRelati..."
         },
         {
-          "document": "cloud_architecture_specification.pdf",
-          "document_id": "818db7a6-7fa4-41df-9803-cc3b067f7d50",
+          "document": "U Prathiksha Kini Resume.pdf",
+          "document_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d",
           "page": 1,
-          "chunk_id": "818db7a6-7fa4-41df-9803-cc3b067f7d50_p1_c1",
-          "relevance_score": 0.181,
-          "snippet": "Cloud Architecture Specification\nVersion 2.4 - Production Reference Manual\n1. Executive Overview and Service Level Agreements\nThe Cloud Arch..."
+          "chunk_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d_p1_c11",
+          "relevance_score": 0.23,
+          "snippet": "SKILLS Technical: C, C++, Python, VB.NET, HTML, CSS, JavaScript, SQL, MongoDB, Power BI, Excel, UiPath Domain: Software Development, Web Dev..."
         },
         {
-          "document": "cloud_architecture_specification.pdf",
-          "document_id": "818db7a6-7fa4-41df-9803-cc3b067f7d50",
+          "document": "U Prathiksha Kini Resume.pdf",
+          "document_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d",
           "page": 1,
-          "chunk_id": "818db7a6-7fa4-41df-9803-cc3b067f7d50_p1_c2",
-          "relevance_score": 0.1534,
-          "snippet": "The target latency Service Level Objective (SLO) is strictly 250 milliseconds for 99th percentile (p99) re\nWorkload clusters run across prim..."
+          "chunk_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d_p1_c12",
+          "relevance_score": 0.2209,
+          "snippet": "AI Foundations Associate \u2014 Oracle University May 2026 \u2022 Oracle Data Platform 2025 Foundations Associate \u2014 Oracle University May 2026 \u2022 AWS T..."
         }
       ],
       "retrieval_success": true,
       "answer_correct": true,
       "groundedness": "GROUNDED",
-      "latency_ms": 33.94,
+      "latency_ms": 41.95,
       "notes": null
     },
     {
       "id": "Q4",
       "question": "What are the four defined user roles under Role-Based Access Control (RBAC)?",
       "expected_answer": "The four defined roles under RBAC are Admin, Developer, Auditor, and Guest.",
-      "generated_answer": "Role-Based Access Control (RBAC)\nUser authorization adheres to strict least-privilege principles. The four defined roles under RBAC are Admin, Developer, Auditor, and Guest.",
+      "generated_answer": "Role-Based Access Control (RBAC) User authorization adheres to strict least-privilege principles. The four defined roles under RBAC are Admin, Developer, Auditor, and Guest. Admin users possess full infrastructure provisioning rights, Developer users manage application deploy EduConnect \u2013 Smart Learning Management System | VB.NET, SQL Server, ADO.NET                        Feb 2026  \u2013 Built a role-based learning management system using a 3-Tier Architecture with secure authentication, course enrollment, student  administration, grades, payments, and database-driven CRUD operations.",
       "retrieved_sources": [
         {
           "document": "cloud_architecture_specification.pdf",
@@ -156,41 +156,41 @@
           "snippet": "3. Role-Based Access Control (RBAC)\nUser authorization adheres to strict least-privilege principles. The four defined roles under RBAC are A..."
         },
         {
-          "document": "cloud_architecture_specification.pdf",
-          "document_id": "818db7a6-7fa4-41df-9803-cc3b067f7d50",
-          "page": 3,
-          "chunk_id": "818db7a6-7fa4-41df-9803-cc3b067f7d50_p3_c1",
-          "relevance_score": 0.2329,
-          "snippet": "Cloud Architecture Specification\nSection 3: Storage and Vector Retrieval Infrastructure\n3. Data Persistence and Database Architecture\nRelati..."
-        },
-        {
-          "document": "cloud_architecture_specification.pdf",
-          "document_id": "818db7a6-7fa4-41df-9803-cc3b067f7d50",
-          "page": 2,
-          "chunk_id": "818db7a6-7fa4-41df-9803-cc3b067f7d50_p2_c1",
-          "relevance_score": 0.2149,
-          "snippet": "Cloud Architecture Specification\nSection 2: Security, Authentication, and Governance\n2. Identity and Access Management\nThe primary authentic..."
-        },
-        {
-          "document": "cloud_architecture_specification.pdf",
-          "document_id": "818db7a6-7fa4-41df-9803-cc3b067f7d50",
+          "document": "U Prathiksha Kini Resume.pdf",
+          "document_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d",
           "page": 1,
-          "chunk_id": "818db7a6-7fa4-41df-9803-cc3b067f7d50_p1_c1",
-          "relevance_score": 0.1651,
-          "snippet": "Cloud Architecture Specification\nVersion 2.4 - Production Reference Manual\n1. Executive Overview and Service Level Agreements\nThe Cloud Arch..."
+          "chunk_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d_p1_c8",
+          "relevance_score": 0.3054,
+          "snippet": "EduConnect \u2013 Smart Learning Management System | VB.NET, SQL Server, ADO.NET \n                      Feb 2026 \n\u2013 Built a role-based learning m..."
+        },
+        {
+          "document": "U Prathiksha Kini Resume.pdf",
+          "document_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d",
+          "page": 1,
+          "chunk_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d_p1_c11",
+          "relevance_score": 0.3044,
+          "snippet": "SKILLS Technical: C, C++, Python, VB.NET, HTML, CSS, JavaScript, SQL, MongoDB, Power BI, Excel, UiPath Domain: Software Development, Web Dev..."
+        },
+        {
+          "document": "U Prathiksha Kini Resume.pdf",
+          "document_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d",
+          "page": 1,
+          "chunk_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d_p1_c9",
+          "relevance_score": 0.2637,
+          "snippet": "\u2013 Implemented AES encryption, SHA-256 password hashing, Singleton design pattern and event-driven login handling while integrating utility \n..."
         }
       ],
       "retrieval_success": true,
       "answer_correct": true,
       "groundedness": "GROUNDED",
-      "latency_ms": 36.36,
+      "latency_ms": 45.48,
       "notes": null
     },
     {
       "id": "Q5",
       "question": "How do the Tier 1 plan and the Enterprise plan differ in price and query limits?",
       "expected_answer": "The Tier 1 plan costs $49 per month with 10,000 queries, whereas the Enterprise plan costs $499 per month with unlimited queries.",
-      "generated_answer": "Subscription Tiers and Usage Limits\nThe platform offers two primary enterprise subscription tiers:\nThe Tier 1 plan costs $49 per month with 10,000 queries, whereas the Enterprise plan costs $499 per m\nDedicated support response times are 24 hours for Tier 1 and 1 hour for Enterprise subscribers.",
+      "generated_answer": "Subscription Tiers and Usage Limits The platform offers two primary enterprise subscription tiers: The Tier 1 plan costs $49 per month with 10,000 queries, whereas the Enterprise plan costs $499 per m Dedicated support response times are 24 hours for Tier 1 and 1 hour for Enterprise subscribers. Cloud Architecture Specification Section 4: Financial Accounting, Cost Allocation, and Service Tiers 4.",
       "retrieved_sources": [
         {
           "document": "cloud_architecture_specification.pdf",
@@ -228,14 +228,14 @@
       "retrieval_success": true,
       "answer_correct": true,
       "groundedness": "GROUNDED",
-      "latency_ms": 32.43,
+      "latency_ms": 43.46,
       "notes": null
     },
     {
       "id": "Q6",
       "question": "What are the uptime SLA and target latency SLO for the service?",
       "expected_answer": "The platform guarantees a 99.95% uptime SLA and maintains a target latency SLO of 250 milliseconds.",
-      "generated_answer": "The target latency Service Level Objective (SLO) is strictly 250 milliseconds for 99th percentile (p99) re\nWorkload clusters run across primary regions in North America and Western Europe with automated fa Cloud Architecture Specification\nVersion 2.4 - Production Reference Manual\n1. Executive Overview and Service Level Agreements\nThe Cloud Architecture platform provides distributed microservice orchestration for high-throughput AI w\nThe system guarantees an uptime SLA of 99.95% availability across all multi-region availability zones.",
+      "generated_answer": "The target latency Service Level Objective (SLO) is strictly 250 milliseconds for 99th percentile (p99) re Workload clusters run across primary regions in North America and Western Europe with automated fa Cloud Architecture Specification Version 2.4 - Production Reference Manual 1. Executive Overview and Service Level Agreements The Cloud Architecture platform provides distributed microservice orchestration for high-throughput AI w The system guarantees an uptime SLA of 99.95% availability across all multi-region availability zones. Cloud Architecture Specification Section 4: Financial Accounting, Cost Allocation, and Service Tiers 4.",
       "retrieved_sources": [
         {
           "document": "cloud_architecture_specification.pdf",
@@ -273,14 +273,14 @@
       "retrieval_success": true,
       "answer_correct": true,
       "groundedness": "GROUNDED",
-      "latency_ms": 29.59,
+      "latency_ms": 38.73,
       "notes": null
     },
     {
       "id": "Q7",
       "question": "When are the automatic database backups scheduled and what encryption is used at rest?",
       "expected_answer": "Automatic database backups run nightly at 02:00 UTC, and data at rest is encrypted using AES-256.",
-      "generated_answer": "Automatic database backups run nightly at 02:00 UTC and are replicated to offsite cold storage with a 3\n4. Identity and Access Management\nThe primary authentication protocol used across all external and internal API gateways is OAuth 2.0 wit\nAuthentication tokens are issued as JSON Web Tokens (JWT) with a mandatory 15-minute expiration t\nFor communication across public and private networks, TLS 1.3 is mandated for in-transit communicatio\nAll persistent storage volumes enforce AES-256 encryption at rest. Data Persistence and Database Architecture\nRelational document metadata, tenant settings, and security audit logs are managed using PostgreSQL\nData at rest is encrypted using AES-256 across all tablespaces and block devices.",
+      "generated_answer": "Data Persistence and Database Architecture Relational document metadata, tenant settings, and security audit logs are managed using PostgreSQL Data at rest is encrypted using AES-256 across all tablespaces and block devices. Automatic database backups run nightly at 02:00 UTC and are replicated to offsite cold storage with a 3 4. Identity and Access Management The primary authentication protocol used across all external and internal API gateways is OAuth 2.0 wit Authentication tokens are issued as JSON Web Tokens (JWT) with a mandatory 15-minute expiration t For communication across public and private networks, TLS 1.3 is mandated for in-transit communicatio All persistent storage volumes enforce AES-256 encryption at rest.",
       "retrieved_sources": [
         {
           "document": "cloud_architecture_specification.pdf",
@@ -299,33 +299,33 @@
           "snippet": "Cloud Architecture Specification\nSection 2: Security, Authentication, and Governance\n2. Identity and Access Management\nThe primary authentic..."
         },
         {
-          "document": "test_sample.pdf",
-          "document_id": "6544578a-0c9d-422d-81a4-046d055eaf17",
+          "document": "U Prathiksha Kini Resume.pdf",
+          "document_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d",
           "page": 1,
-          "chunk_id": "6544578a-0c9d-422d-81a4-046d055eaf17_p1_c1",
-          "relevance_score": 0.2346,
-          "snippet": "Architecture Overview: The platform uses OAuth 2.0 with PKCE and JWT tokens with 15-minute expiry. PostgreS"
+          "chunk_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d_p1_c7",
+          "relevance_score": 0.3125,
+          "snippet": "\u2013 Implemented JWT authentication, refresh-token management, security hardening, cron-based data scheduling, and Dockerized deployment \nto im..."
         },
         {
-          "document": "test_sample.pdf",
-          "document_id": "9c5bcb42-b06f-4167-b3ad-6f1223cd4d55",
+          "document": "U Prathiksha Kini Resume.pdf",
+          "document_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d",
           "page": 1,
-          "chunk_id": "9c5bcb42-b06f-4167-b3ad-6f1223cd4d55_p1_c1",
-          "relevance_score": 0.2346,
-          "snippet": "Architecture Overview: The platform uses OAuth 2.0 with PKCE and JWT tokens with 15-minute expiry. PostgreS"
+          "chunk_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d_p1_c9",
+          "relevance_score": 0.3084,
+          "snippet": "\u2013 Implemented AES encryption, SHA-256 password hashing, Singleton design pattern and event-driven login handling while integrating utility \n..."
         }
       ],
       "retrieval_success": true,
       "answer_correct": true,
       "groundedness": "GROUNDED",
-      "latency_ms": 31.25,
+      "latency_ms": 38.74,
       "notes": null
     },
     {
       "id": "Q8",
       "question": "What transport security protocol is mandated for in-transit communication?",
       "expected_answer": "TLS 1.3 is mandated for in-transit communication.",
-      "generated_answer": "Identity and Access Management\nThe primary authentication protocol used across all external and internal API gateways is OAuth 2.0 wit\nAuthentication tokens are issued as JSON Web Tokens (JWT) with a mandatory 15-minute expiration t\nFor communication across public and private networks, TLS 1.3 is mandated for in-transit communicatio\nAll persistent storage volumes enforce AES-256 encryption at rest.",
+      "generated_answer": "Identity and Access Management The primary authentication protocol used across all external and internal API gateways is OAuth 2.0 wit Authentication tokens are issued as JSON Web Tokens (JWT) with a mandatory 15-minute expiration t For communication across public and private networks, TLS 1.3 is mandated for in-transit communicatio All persistent storage volumes enforce AES-256 encryption at rest. Cloud Architecture Specification Section 2: Security, Authentication, and Governance 2. \u2013 Implemented JWT authentication, refresh-token management, security hardening, cron-based data scheduling, and Dockerized deployment  to improve system scalability, reliability, and security.",
       "retrieved_sources": [
         {
           "document": "cloud_architecture_specification.pdf",
@@ -336,6 +336,14 @@
           "snippet": "Cloud Architecture Specification\nSection 2: Security, Authentication, and Governance\n2. Identity and Access Management\nThe primary authentic..."
         },
         {
+          "document": "U Prathiksha Kini Resume.pdf",
+          "document_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d",
+          "page": 1,
+          "chunk_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d_p1_c7",
+          "relevance_score": 0.2453,
+          "snippet": "\u2013 Implemented JWT authentication, refresh-token management, security hardening, cron-based data scheduling, and Dockerized deployment \nto im..."
+        },
+        {
           "document": "cloud_architecture_specification.pdf",
           "document_id": "818db7a6-7fa4-41df-9803-cc3b067f7d50",
           "page": 2,
@@ -344,26 +352,18 @@
           "snippet": "3. Role-Based Access Control (RBAC)\nUser authorization adheres to strict least-privilege principles. The four defined roles under RBAC are A..."
         },
         {
-          "document": "test_sample.pdf",
-          "document_id": "6544578a-0c9d-422d-81a4-046d055eaf17",
+          "document": "U Prathiksha Kini Resume.pdf",
+          "document_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d",
           "page": 1,
-          "chunk_id": "6544578a-0c9d-422d-81a4-046d055eaf17_p1_c1",
-          "relevance_score": 0.2081,
-          "snippet": "Architecture Overview: The platform uses OAuth 2.0 with PKCE and JWT tokens with 15-minute expiry. PostgreS"
-        },
-        {
-          "document": "test_sample.pdf",
-          "document_id": "9c5bcb42-b06f-4167-b3ad-6f1223cd4d55",
-          "page": 1,
-          "chunk_id": "9c5bcb42-b06f-4167-b3ad-6f1223cd4d55_p1_c1",
-          "relevance_score": 0.2081,
-          "snippet": "Architecture Overview: The platform uses OAuth 2.0 with PKCE and JWT tokens with 15-minute expiry. PostgreS"
+          "chunk_id": "68cf0c89-6afe-4332-a4d9-57de7d93e88d_p1_c9",
+          "relevance_score": 0.2086,
+          "snippet": "\u2013 Implemented AES encryption, SHA-256 password hashing, Singleton design pattern and event-driven login handling while integrating utility \n..."
         }
       ],
       "retrieval_success": true,
       "answer_correct": true,
       "groundedness": "GROUNDED",
-      "latency_ms": 27.19,
+      "latency_ms": 41.53,
       "notes": null
     },
     {
@@ -375,7 +375,7 @@
       "retrieval_success": true,
       "answer_correct": true,
       "groundedness": "OUT_OF_CONTEXT_HANDLED",
-      "latency_ms": 27.89,
+      "latency_ms": 39.85,
       "notes": null
     },
     {
@@ -387,9 +387,9 @@
       "retrieval_success": true,
       "answer_correct": true,
       "groundedness": "OUT_OF_CONTEXT_HANDLED",
-      "latency_ms": 31.9,
+      "latency_ms": 46.0,
       "notes": null
     }
   ],
-  "timestamp": "2026-09-25T04:51:04.526860Z"
+  "timestamp": "2026-09-25T06:29:14.045699Z"
 }
