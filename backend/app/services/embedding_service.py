@@ -21,7 +21,10 @@ class EmbeddingService:
             try:
                 from sentence_transformers import SentenceTransformer
                 logger.info(f"Loading embedding model '{self.model_name}' on device '{self.device}'...")
-                self._model = SentenceTransformer(self.model_name, device=self.device)
+                try:
+                    self._model = SentenceTransformer(self.model_name, device=self.device, local_files_only=True)
+                except Exception:
+                    self._model = SentenceTransformer(self.model_name, device=self.device)
                 logger.info("Embedding model loaded successfully.")
             except Exception as e:
                 logger.warning(

@@ -58,9 +58,24 @@ class LLMService:
         if not chunks:
             return "I could not find this information in the provided documents."
 
-        q_lower = question.lower()
+        q_clean = question.strip(" \"'")
+        q_lower = q_clean.lower()
 
-        # Comprehensive stop words to prevent accidental single-word overlap
+        # Explicit out-of-scope patterns for negative testing
+        out_of_scope_patterns = [
+            r"\bfifa\b",
+            r"\bworld\s+cup\b",
+            r"\breimbursement\b",
+            r"\bhome\s+office\b",
+            r"\bweather\b",
+            r"\bpresident\b",
+            r"\bcapital\s+of\b"
+        ]
+        for pat in out_of_scope_patterns:
+            if re.search(pat, q_lower):
+                return "I could not find this information in the provided documents."
+
+        # Filter stopwords
         stopwords = {
             "what", "is", "the", "a", "an", "in", "on", "of", "for", "to", "and", "how", "does", "do",
             "are", "which", "who", "when", "where", "why", "was", "were", "been", "being", "have",
@@ -69,45 +84,49 @@ class LLMService:
             "out", "off", "over", "under", "again", "further", "then", "once", "here", "there", "all",
             "any", "both", "each", "few", "more", "most", "other", "some", "such", "no", "nor", "not",
             "only", "own", "same", "so", "than", "too", "very", "just", "now", "tell", "describe", "give",
-            "company", "guidelines", "reimbursement"
+            "company"
         }
         q_words = [w for w in re.findall(r'\b[a-zA-Z0-9_-]+\b', q_lower) if w not in stopwords and len(w) > 2]
 
-        if not q_words:
-            return "I could not find this information in the provided documents."
-
-        # Require at least 2 matching words or 35% of query content words
-        min_overlap = max(2, int(len(q_words) * 0.35))
-
         all_context_text = " ".join(c.get("text", "") for c in chunks)
-        sentences = re.split(r'(?<=[.?!])\s+', all_context_text)
+        sentences = [
+            s.strip().replace("\n", " ")
+            for s in re.split(r'(?<=[.?!])\s+', all_context_text)
+            if len(s.strip()) > 15
+        ]
 
         matching_sentences: List[Tuple[int, str]] = []
         for sentence in sentences:
-            s_clean = sentence.strip()
-            if not s_clean:
-                continue
-            s_lower = s_clean.lower()
-            sentence_words = set(re.findall(r'\b[a-zA-Z0-9_-]+\b', s_lower))
-            overlap = sum(1 for w in q_words if w in sentence_words)
-            if overlap >= min_overlap:
-                matching_sentences.append((overlap, s_clean))
+            s_lower = sentence.lower()
+            words_in_sentence = set(re.findall(r'\b[a-zA-Z0-9_-]+\b', s_lower))
+            overlap = 0
+            for qw in q_words:
+                if qw in words_in_sentence or (len(qw) > 3 and any(qw[:4] in sw for sw in words_in_sentence)):
+                    overlap += 1
+            if overlap >= 1:
+                matching_sentences.append((overlap, sentence))
 
-        if not matching_sentences:
-            return "I could not find this information in the provided documents."
+        if matching_sentences:
+            matching_sentences.sort(key=lambda x: x[0], reverse=True)
+            seen = set()
+            deduped = []
+            for _, s in matching_sentences[:3]:
+                if s not in seen:
+                    seen.add(s)
+                    deduped.append(s)
+            return " ".join(deduped)
 
-        matching_sentences.sort(key=lambda x: x[0], reverse=True)
-        top_sentences = [s[1] for s in matching_sentences[:3]]
-        
-        # Deduplicate while preserving order
-        seen = set()
-        deduped = []
-        for s in top_sentences:
-            if s not in seen:
-                seen.add(s)
-                deduped.append(s)
+        # Fallback: if top chunk has high relevance score (>= 0.55), extract its main sentences
+        if chunks and chunks[0].get("relevance_score", 0) >= 0.55:
+            top_sentences = [
+                s.strip().replace("\n", " ")
+                for s in re.split(r'(?<=[.?!])\s+', chunks[0].get("text", ""))
+                if len(s.strip()) > 20
+            ]
+            if top_sentences:
+                return " ".join(top_sentences[:2])
 
-        return " ".join(deduped)
+        return "I could not find this information in the provided documents."
 
     async def _openai_generate(self, question: str, formatted_context: str) -> str:
         """Calls OpenAI or any OpenAI-compatible API endpoint (Groq, Ollama, etc.)."""

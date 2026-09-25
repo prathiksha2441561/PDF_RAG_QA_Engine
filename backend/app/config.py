@@ -1,5 +1,6 @@
 import os
 os.environ["ANONYMIZED_TELEMETRY"] = "False"
+os.environ["HF_HUB_OFFLINE"] = "1"
 from pathlib import Path
 from typing import Optional
 from pydantic_settings import BaseSettings, SettingsConfigDict
