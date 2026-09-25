@@ -145,8 +145,8 @@ flowchart TD
 ### 1. Clone & Setup Python Virtual Environment
 
 ```bash
-git clone https://github.com/yourusername/pdf-qa-rag.git
-cd pdf-qa-rag
+git clone https://github.com/prathiksha2441561/PDF_RAG_QA_Engine.git
+cd PDF_RAG_QA_Engine
 
 # Create virtual environment
 python -m venv .venv
